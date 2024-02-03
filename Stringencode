@@ -1,0 +1,23 @@
+public static String encode(String message) {
+		// Write your code here.
+		if (message == null || message.isEmpty()) {
+        	return "";
+    	}
+
+        StringBuilder result = new StringBuilder();
+		int count = 1;
+		int index = 0;
+		while(index<message.length()-1){
+			if(message.charAt(index)==message.charAt(index+1)){
+				count++;
+			}
+			else{
+                result.append(message.charAt(index)).append(count);
+            	count = 1;
+			}
+
+			index++;
+		}
+        result.append(message.charAt(index)).append(count);
+		return result.toString();
+	}
